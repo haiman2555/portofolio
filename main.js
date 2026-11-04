@@ -67,13 +67,11 @@ document.querySelectorAll('[data-yt]').forEach(function (a) {
   });
 });
 
-// Thumbnail TikTok lewat oEmbed (jika gagal, tetap pakai tampilan warna + judul)
+// Thumbnail TikTok: frame pertama tiap video, disimpan di folder thumbs/<id>.jpg
+// (jika file belum ada, tampilan warna + judul tetap dipakai)
 document.querySelectorAll('[data-tt]').forEach(function (a) {
   var box = a.querySelector('.thumb') || a.querySelector('.screen'); if (!box) return;
-  fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent(a.href))
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (d) { if (d && d.thumbnail_url) setPoster(box, d.thumbnail_url); })
-    .catch(function () {});
+  setPoster(box, 'thumbs/' + a.dataset.tt + '.jpg');
 });
 
 // Klik thumbnail = putar di halaman; klik judul = buka di platform
