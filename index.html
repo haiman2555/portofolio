@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <div class="wrap">
@@ -95,7 +95,10 @@
           <button class="chip" id="f-doc" data-f="doc" aria-pressed="false">Profil desa</button>
         </div>
       </div>
-      <div class="works">
+      <div class="slider">
+        <button class="nav prev" type="button" aria-label="Karya sebelumnya" disabled></button>
+        <div class="works" id="works" tabindex="0" aria-label="Daftar karya, geser ke samping">
+          <div class="track">
         <a data-yt="fIFcI2sWygQ" class="work wide" data-cat="long" href="https://youtu.be/fIFcI2sWygQ" target="_blank" rel="noopener">
           <div class="thumb"><div class="g" style="background:linear-gradient(135deg,#0E3B2E,#1F8A63 60%,#35C99B)"></div><span class="tag">YouTube</span><span class="play"></span><span class="tt">Mulai lagi trading <em>dari nol</em></span><span class="dur">620 rb views</span></div>
           <h3>Ini Yang Bakal Aku Lakuin Kalo Mulai Lagi Trading dari Nol</h3><p>Andre Rizky Investasi · YouTube</p>
@@ -124,7 +127,11 @@
           <div class="thumb"><div class="g" style="background:linear-gradient(135deg,#3D5A2A,#8BA35A 60%,#E8C27A)"></div><span class="tag">Profil desa</span><span class="play"></span><span class="tt">Profil Desa <em>Sukanagara</em></span><span class="dur">1,5 rb views</span></div>
           <h3>Profil Desa Sukanagara</h3><p>CV. Logita Bumi Persada · shooting &amp; editing</p>
         </a>
+          </div>
+        </div>
+        <button class="nav next" type="button" aria-label="Karya berikutnya"></button>
       </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -179,6 +186,6 @@
   <footer><span>© 2026 Raka Adrel Imanulloh</span><span>Video Editor · Motion · Short-form</span></footer>
 </div>
 
-<script src="main.js?v=4"></script>
+<script src="main.js?v=5"></script>
 </body>
 </html>
