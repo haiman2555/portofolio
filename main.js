@@ -89,3 +89,22 @@ document.querySelectorAll('[data-yt],[data-tt]').forEach(function (a) {
     box.appendChild(makeFrame(src, title));
   });
 });
+
+// Showcase: putar otomatis (tanpa suara) saat HP terlihat di layar
+(function () {
+  var phones = document.querySelectorAll('.showcase [data-tt]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var a = en.target, box = a.querySelector('.screen');
+      io.unobserve(a);
+      if (box.classList.contains('playing')) return;
+      box.classList.add('playing');
+      box.appendChild(makeFrame(ttSrc(a.dataset.tt, {
+        muted: 1, controls: 0, play_button: 0, fullscreen_button: 0, timestamp: 0, progress_bar: 1
+      }), (a.querySelector('.t') || {}).textContent));
+    });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  phones.forEach(function (p) { io.observe(p); });
+})();
