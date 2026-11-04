@@ -126,7 +126,7 @@ document.querySelectorAll('[data-yt],[data-tt]').forEach(function (a) {
       var b = document.createElement('button'); b.type = 'button'; b.tabIndex = -1;
       b.addEventListener('click', function () { go(i); }); dotsBox.appendChild(b);
     });
-    pad(); sc.scrollLeft = 0; update();
+    pad(); sc.style.scrollBehavior = 'auto'; sc.scrollLeft = 0; sc.style.scrollBehavior = ''; update();
   }
   function pad() {
     var cs = cards(), tr = sc.querySelector('.track'); if (!cs.length) return;
@@ -166,5 +166,5 @@ document.querySelectorAll('[data-yt],[data-tt]').forEach(function (a) {
   }, true);
   sc.addEventListener('dragstart', function (e) { e.preventDefault(); });
   buildDots();
-  window.addEventListener('load', function () { pad(); sc.scrollLeft = 0; update(); });
+  window.addEventListener('load', function () { pad(); sc.style.scrollBehavior = 'auto'; sc.scrollLeft = 0; sc.style.scrollBehavior = ''; update(); });
 })();
