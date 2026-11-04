@@ -193,3 +193,7 @@ footer{padding-block:32px 40px;display:flex;justify-content:space-between;gap:12
 .dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
 .dots button.on{width:22px;background:var(--mint)}
 @media (max-width:520px){.works{-webkit-mask-image:none;mask-image:none}.works .work.wide{width:76vw}.track{gap:14px}.nav{width:40px;height:40px}.nav.prev{left:-2px}.nav.next{right:-2px}}
+
+/* Hero: beri ruang di bawah kotak "Lihat karya" */
+.hero-in > div:first-child{padding-bottom:56px}
+@media (max-width:860px){.hero-in > div:first-child{padding-bottom:12px}}
