@@ -198,3 +198,6 @@ footer{padding-block:32px 40px;display:flex;justify-content:space-between;gap:12
 /* Hero: beri ruang di bawah kotak "Lihat karya" */
 .hero-in > div:first-child{padding-bottom:56px}
 @media (max-width:860px){.hero-in > div:first-child{padding-bottom:12px}}
+
+/* Logo software: dipakai jika file ada di folder logos/ */
+.tool .logo{width:46px;height:46px;object-fit:contain;display:block}

@@ -168,3 +168,16 @@ document.querySelectorAll('[data-yt],[data-tt]').forEach(function (a) {
   buildDots();
   window.addEventListener('load', function () { pad(); sc.style.scrollBehavior = 'auto'; sc.scrollLeft = 0; sc.style.scrollBehavior = ''; update(); });
 })();
+
+// ---------- Logo software ----------
+// Taruh file logo di folder logos/ dengan nama sesuai data-logo, misalnya logos/premiere-pro.svg atau .png.
+// Jika file tidak ada, ikon huruf tetap dipakai.
+document.querySelectorAll('.tool[data-logo]').forEach(function (t) {
+  var slug = t.dataset.logo, exts = ['svg', 'png', 'webp', 'jpg'], i = 0;
+  var img = new Image();
+  img.className = 'logo';
+  img.alt = (t.querySelector('b') || {}).textContent || '';
+  img.onload = function () { var ic = t.querySelector('.ic'); if (ic) ic.replaceWith(img); };
+  img.onerror = function () { i++; if (i < exts.length) img.src = 'logos/' + slug + '.' + exts[i]; };
+  img.src = 'logos/' + slug + '.' + exts[0];
+});
